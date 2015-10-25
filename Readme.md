@@ -1,5 +1,5 @@
 
-Sieve syntax highlight for Sublime Text and TextMate
+[Sieve, mail filtering language](http://tools.ietf.org/html/rfc5228) syntax highlight for Sublime Text and TextMate
 
 ![screenshot with tomorrow theme](screenshot.png)
 
