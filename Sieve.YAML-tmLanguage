@@ -1,0 +1,68 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Sieve
+# http://tools.ietf.org/html/rfc5228
+scopeName: source.sieve
+fileTypes: [sieve]
+uuid: 46d1afcd-26c2-43d2-bfd4-8e271852e513
+
+patterns:
+
+- name: keyword.control.flow.sieve
+  match: \b(stop|require)\b
+
+- name: keyword.control.conditional.sieve
+  match: \b(if|elsif|else)\b
+
+- name: keyword.operator.comparison.sieve
+  match: \:(is|contains|matches)
+
+- name: keyword.operator.relational.sieve
+  match: \:(under|over)
+
+- name: declaration.tag.sive
+  match: \:[a-zA-z][a-zA-Z0-9]*
+
+- name: keyword.operator.logical.sieve
+  match: \b(and|or|not)\b
+
+- name: keyword.operator.sieve
+  match: \b(allof|anyof|exists)\b
+
+- name: constant.numeric.sieve
+  match: (\d[K|M|G]?)
+
+- name: constant.language.boolean.sieve
+  match: \b(true|false)\b
+
+- name: constant.language.sieve # commands
+  match: \b(header|address|envelope|size)\b
+
+- name: support.function.sieve
+  match: \b(removeflag|setflag|addflag)\b
+
+- name: entity.name.class.sieve
+  match: \b(keep|discard|fileinto|redirect|reject)\b
+
+- name: string.quoted.sieve
+  begin: (["])
+  end: ([^\\]\1)
+
+# TODO: 2.4.2.4.  Encoding Characters Using "encoded-character"
+            # if header :contains "Subject" "$${hex:24 24}"
+# TODO: 2.7.3.  Comparators
+            # "i;octet" and the "i;ascii-casemap" comparators
+- name: string.multiline.sieve
+  begin: text:\n
+  end: (^\.$)
+
+- name: comment.line.hash.sieve
+  match: \#.*
+
+- name: comment.block.sieve
+  begin: /\*
+  end: \*/
+  patterns:
+  - include: $self
+  - name: comment.block.content.sieve
+    match: .
