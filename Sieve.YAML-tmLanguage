@@ -65,4 +65,4 @@ patterns:
   patterns:
   - include: $self
   - name: comment.block.content.sieve
-    match: .
+    match: .*

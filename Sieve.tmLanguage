@@ -119,7 +119,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>.</string>
+					<string>.*</string>
 					<key>name</key>
 					<string>comment.block.content.sieve</string>
 				</dict>
